@@ -7,7 +7,7 @@ class Employees {
     this.last = lastName;
     this.idNum = idNum;
     this.title = title;
-    this.annualSalary = annualSalary;
+    this.annual = annualSalary;
   } // end constructor
 } // end employee class
 // empty employees array
@@ -26,8 +26,37 @@ function submitEmployee() {
     $('#idNum').val(),
     $('#title').val(),
     $('#annualSalary').val(),
-  );
+  ); // end newEmployee
 // test in console log for new employees input info
-console.log('adding in', newEmployee);
+  console.log('adding in', newEmployee);
+// push newEmployee into employeeArr array
+  employeeArr.push(newEmployee);
+// display employee output tables on Dom
+  displayEmployee();
 }
-
+// display Employee list on DOM
+function displayEmployee() {
+// empty out employee input array on DOM
+  let outputEl = $('#employeesOutput');
+  outputEl.empty();
+// for loop of individual employees in employeeArr
+for(let one of employeeArr) {
+    // employees output displayed on DOM
+    $('#employeesOutput').append(`
+    <table>
+    <tr>
+    <td>${one.name}</td>
+    <td>${one.last}</td>
+    <td>${one.idNum}</td>
+    <td>${one.title}</td>
+    <td>${one.annual}</td>
+    </tr>
+    </table>`);
+  }
+// clear input fields
+    $('#firstName').val('');
+    $('#lastName').val('');
+    $('#idNum').val('');
+    $('#title').val('');
+    $('#annualSalary').val('');
+}
