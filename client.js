@@ -12,8 +12,6 @@ class Employees {
 } // end employee class
 // empty employees array
 let employeeArr = [];
-// calculate total salary, set salary to 0
-let totalSalary = 0;
 // readyNow function: submit & delete button click listeners
 function readyNow() {
   $('#submit').on('click', submitEmployee);
@@ -41,9 +39,14 @@ function displayEmployee() {
 // empty out employee input array on DOM
   let employeeOutputEl = $('#employeesOutput');
   employeeOutputEl.empty();
+// empty out total salary income on DOM
+  let salaryOutputEl = $('#salaryOutput');
+  salaryOutputEl.empty();
+// calculate total salary, set salary to 0
+  let totalSalary = 0;
 // for loop of individual employees in employeeArr
-for(let one of employeeArr) {
-    totalSalary += Number(one.annual).toFixed(2);
+  for(let one of employeeArr) {
+    totalSalary += Number(one.annual);
     // employees output displayed on DOM
     $('#employeesOutput').append(`
     <table>
@@ -55,26 +58,15 @@ for(let one of employeeArr) {
     <td>$${Number(one.annual).toFixed(2)}</td>
     </tr>
     </table>`);
-    // calculate total salary
-  }
-
-// test total salary 
+}
+// append total salary to dom
+  $('#salaryOutput').append(totalSalary);
+// log total salary test
   console.log('totalSalary', totalSalary); 
 // clear input fields
-    $('#firstName').val('');
-    $('#lastName').val('');
-    $('#idNum').val('');
-    $('#title').val('');
-    $('#annualSalary').val('');
-}
-function displaySalary() {
-// empty out employee input array on DOM
-  let salaryOutputEl = $('#salaryOutput');
-  salaryOutputEl.empty();
-// for loop of individual employees in employeeArr
-for(let one of employeeArr) {
-    totalSalary += Number(one.annual).toFixed(2);
-  }
-// test total salary 
-  console.log('totalSalary', totalSalary); 
+  $('#firstName').val('');
+  $('#lastName').val('');
+  $('#idNum').val('');
+  $('#title').val('');
+  $('#annualSalary').val('');
 }
