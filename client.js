@@ -45,20 +45,24 @@ function displayOutputs() {
     totalSalary += Number(one.annual);
     // employees output displayed on DOM
     $('#employeesOutput').append(`
-    <table>
     <tr id="${one.idNum}">
     <td>${one.name}</td>
     <td>${one.last}</td>
     <td>${one.idNum}</td>
     <td>${one.title}</td>
-    <td>$${Number(one.annual).toFixed(2)}</td>
+    <td>$${one.annual}</td>
     <td><button id="${one.idNum}">Delete Employee</button></td>
-    </tr>
-    </table>`);
+    </tr>`);
+
     // delete click listener & handler
     $(`#${one.idNum}`).on('click', function () {
+      // Access monthly
+      let currentMonthy = $(`#salaryOutput`).text();
+      // set new monthly
+    
+      // deletes row based on id number
       $(`#${one.idNum}`).remove();
-      console.log(one.idNum);
+
     })
 }
 // calling calculate function 
@@ -81,10 +85,5 @@ function calculateDisplay(allSalary) {
     $('#salaryOutput').css('color', 'red')
   }
 // append total salary to dom
-  $('#salaryOutput').append(`
-  <table>
-  <tr>
-  <td>${totalMonthly.toFixed(2)}</td>
-  </tr>
-  </table>`);
+  $('#salaryOutput').append(totalMonthly.toFixed(2));
 } // end calculateDisplay

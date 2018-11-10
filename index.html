@@ -5,11 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Weekend Salary Calculator </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="style.css" />
     <script src="jquery-3.3.1.min.js"></script>
     <script src="client.js"></script>
 </head>
 <body>
+<div id="container">
   <h1>Salary Calculator</h1>
   <div id="addEmployeeInput">
     <input type="text" placeholder="First Name" id="firstName" />
@@ -20,21 +22,21 @@
     <button id="submit">Submit</button>
   </div>
   <h1>Employees</h1>
-  <table>
-      <thead>
+  <table class="table table-hover">
+      <thead class="thead-light">
           <tr>
             <th>First Name</th>
             <th>Last Name</th>
             <th>ID</th>
             <th>Title</th>
             <th>Annual Salary</th>
+            <th></th>
           </tr>
       </thead>
-    </table>
-  <div id="employeesOutput">
-  </div>
-  <h1>Total Monthly:</h1>
-  <div id="salaryOutput">
-  </div>
+    <tbody id="employeesOutput">
+    </tbody>
+  </table>
+  <h1>Total Monthly: <span id="salaryOutput">&nbsp</span></h1>
+</div>
 </body>
 </html>
