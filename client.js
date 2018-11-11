@@ -10,12 +10,15 @@ class Employees {
     this.annual = annualSalary;
   } // end constructor
 } // end employee class
+
 // empty employees array
 let employeeArr = [];
+
 // readyNow function: submit & delete button click listeners
 function readyNow() {
   $('#submit').on('click', submitEmployee); // submit button click listener
 } // end readyNow
+
 // submit click  handler
 function submitEmployee() {
   // creating new employees with input info
@@ -26,8 +29,10 @@ function submitEmployee() {
     $('#title').val(),
     $('#annualSalary').val(),
   ); // end newEmployee
+
   // test in console log for new employees input info
   console.log('adding in', newEmployee);
+
   // push newEmployee into employeeArr array
   employeeArr.push(newEmployee);
   // display employee output tables on Dom
@@ -56,15 +61,17 @@ function displayOutputs() {
 
     // delete click listener & handler
     $(`#${one.idNum}`).on('click', function () {
-      // Access monthly
-      let currentMonthy = $(`#salaryOutput`).text();
-      // set new monthly
-    
-      // deletes row based on id number
-      $(`#${one.idNum}`).remove();
-
-    })
-}
+    // set currentmonthly to subtract from total monthly
+    let currentMonthy = $(`#salaryOutput`).text();
+    // converts string into integer to divide
+    $(`#salaryOutput`).text(`${(currentMonthy - (parseFloat(one.annual) / 12)).toFixed(2)}`);
+    // deletes row based on id number
+    $(`#${one.idNum}`).remove();
+    // find the employee that i've deleted in the array to actually remove them
+    let employeeIndex = employeeArr.indexOf(one);
+    employeeArr.splice(employeeIndex,1);
+    }) // end click listener & handler
+  } // end for loop of individual employees in employeeArr
 // calling calculate function 
   calculateDisplay(totalSalary);
 // clear input fields
