@@ -14,7 +14,7 @@ class Employees {
 // empty employees array
 let employeeArr = [];
 
-// readyNow function: submit & delete button click listeners
+// readyNow function: submit button click listener
 function readyNow() {
   $('#submit').on('click', submitEmployee); // submit button click listener
 } // end readyNow
@@ -29,15 +29,12 @@ function submitEmployee() {
     $('#title').val(),
     $('#annualSalary').val(),
   ); // end newEmployee
-
-  // test in console log for new employees input info
-  console.log('adding in', newEmployee);
-
   // push newEmployee into employeeArr array
   employeeArr.push(newEmployee);
-  // display employee output tables on Dom
+  // call display employee output tables on Dom
   displayOutputs();
 } // end submitEmployee
+
 // display employee outputs on DOM & calculating total salary
 function displayOutputs() {
 // empty out employee input array on DOM
@@ -72,6 +69,7 @@ function displayOutputs() {
     employeeArr.splice(employeeIndex,1);
     }) // end click listener & handler
   } // end for loop of individual employees in employeeArr
+
 // calling calculate function 
   calculateDisplay(totalSalary);
 // clear input fields
@@ -81,6 +79,7 @@ function displayOutputs() {
   $('#title').val('');
   $('#annualSalary').val('');
 } // end displayOutputs
+
 // calculate total monthly and displays it on DOM
 function calculateDisplay(allSalary) {
 // empty out total salary income on DOM
@@ -89,7 +88,9 @@ function calculateDisplay(allSalary) {
 // calculate total monthly costs
   let totalMonthly = allSalary / 12;
   if (totalMonthly > 20000) {
-    $('#salaryOutput').css('color', 'red')
+    $('#salaryOutput').css('color', 'red');
+  } else {
+    $('#salaryOutput').css('color', '#e6e6e6');
   }
 // append total salary to dom
   $('#salaryOutput').append(totalMonthly.toFixed(2));
