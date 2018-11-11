@@ -56,7 +56,7 @@ function displayOutputs() {
     <td>${one.idNum}</td>
     <td>${one.title}</td>
     <td>$${one.annual}</td>
-    <td><button id="${one.idNum}">Delete Employee</button></td>
+    <td class="deleteButton"><button id="${one.idNum}" class="btn btn-dark">Delete Employee</button></td>
     </tr>`);
 
     // delete click listener & handler

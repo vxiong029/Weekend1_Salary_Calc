@@ -4,7 +4,7 @@ body {
   background-repeat: no-repeat;
 }
 header {
-  height: 230px;
+  height: 200px;
   text-align: center;
   color: #e6e6e6;
   font-size: 118px;
@@ -12,6 +12,7 @@ header {
 h1 {
   font-size: 25px;
   color: #e6e6e6;
+  margin: 10px;
 }
 #container {
   margin: 0 auto;
@@ -32,4 +33,7 @@ h1 {
 #addEmployeeInput {
   background: #5c5c8a;
   padding: 5px;
+}
+.deleteButton {
+  text-align: center;
 }
