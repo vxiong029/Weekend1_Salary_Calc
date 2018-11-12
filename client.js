@@ -88,9 +88,9 @@ function calculateDisplay(allSalary) {
 // calculate total monthly costs
   let totalMonthly = allSalary / 12;
   if (totalMonthly > 20000) {
-    $('#salaryOutput').css('color', 'red');
+    $('#salaryOutput').css('background-color', 'red');
   } else {
-    $('#salaryOutput').css('color', '#e6e6e6');
+    $('#salaryOutput').css('background-color', '#e6e6e6');
   }
 // append total salary to dom
   $('#salaryOutput').append(totalMonthly.toFixed(2));
